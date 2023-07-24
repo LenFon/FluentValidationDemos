@@ -1,5 +1,4 @@
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;
 using MediatR;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
@@ -16,7 +15,6 @@ builder.Services.AddMediatR(cfg =>
     cfg.AddOpenBehavior(typeof(ValidationBehavior<,>), ServiceLifetime.Scoped);
 });
 builder.Services.AddValidatorsFromAssemblies(assemblies, includeInternalTypes: true);
-builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddFluentValidationRulesToSwagger();
 
 builder.Services.AddControllers();
